@@ -1,0 +1,9 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/drones", "destination": "/index.html" },
+    { "source": "/drones/", "destination": "/index.html" },
+    { "source": "/drones/:path*", "destination": "/:path*" }
+  ]
+}
