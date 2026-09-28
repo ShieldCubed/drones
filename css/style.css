@@ -49,25 +49,24 @@ p { margin: 0 0 1em; max-width: 62ch; color: var(--text-muted); }
   position: sticky; top: 0; z-index: 10;
   background: rgba(18, 22, 27, 0.94);
   backdrop-filter: blur(6px);
-  overflow: hidden;
 }
 .site-header .wrap {
   display: flex; align-items: center; justify-content: space-between;
-  height: 68px;
+  height: 72px;
 }
 .logo {
   font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
-  color: var(--text); display: flex; align-items: center; gap: 10px;
+  color: var(--text); display: flex; align-items: center; gap: 12px;
   flex-shrink: 0;
 }
 .logo img {
-  width: 32px !important;
-  height: 32px !important;
-  max-width: 32px !important;
-  max-height: 32px !important;
+  width: 48px !important;
+  height: 48px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
   object-fit: contain;
   display: block;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 .logo .dot { color: var(--accent); }
 .nav { display: flex; gap: 28px; align-items: center; }
