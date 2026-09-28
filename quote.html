@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Quote — Spacenet Network</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">SPACENET<span class="dot">.</span>NETWORK</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="about.html">About</a>
+      <a href="https://t.me/g64group">Telegram</a>
+      <a href="quote.html" class="active">Request Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section" style="padding-top:48px; border-bottom:none;">
+  <div class="wrap">
+    <h2>Request a quote</h2>
+    <p>Tell us what you need and your program context. We'll follow up with pricing, lead time, and any export documentation required.</p>
+    <div class="contact-bar" style="margin-bottom:28px;">
+      <a class="pill tg" href="https://t.me/g64group" target="_blank" rel="noopener">Telegram @g64group</a>
+      <a class="pill wa" href="https://wa.me/918073293264" target="_blank" rel="noopener">WhatsApp +91 80732 93264</a>
+    </div>
+
+    <div class="notice">
+      <p>End-use details help us route propulsion and export-controlled items faster. This form writes to the same Google Form you published — no Google iframe.</p>
+    </div>
+
+    <form class="rfq-form" id="rfq-form"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdOw5aGSxDJv80zeuaMmI3-4byaxpznPhiILn5mR5vWfxet1w/formResponse"
+      method="POST"
+      target="hidden_iframe">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="entry.1360533843" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="entry.1508898149" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="entry.1737866066" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">WhatsApp / phone</label>
+          <input type="tel" id="phone" name="entry.2061188105" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="telegram">Telegram</label>
+          <input type="text" id="telegram" name="entry.1355482251" placeholder="@username">
+        </div>
+        <div class="field">
+          <label for="country">Country</label>
+          <input type="text" id="country" name="entry.249865413" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pref">Preferred contact</label>
+          <select id="pref" name="entry.1210929339" required>
+            <option value="">Select…</option>
+            <option>Telegram</option>
+            <option>WhatsApp</option>
+            <option>Email</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cat">Product category</label>
+          <select id="cat" name="entry.22319828">
+            <option value="">Select…</option>
+            <option>Airframes</option>
+            <option>Propulsion &amp; Microjet</option>
+            <option>Avionics</option>
+            <option>Sensors</option>
+            <option>Power</option>
+            <option>Comms</option>
+            <option>Navigation</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="sku">Part number(s) of interest</label>
+          <input type="text" id="sku" name="entry.145608249" placeholder="e.g. SPN-PR-2019">
+        </div>
+        <div class="field">
+          <label for="qty">Quantity</label>
+          <input type="text" id="qty" name="entry.1394003605" placeholder="e.g. 4 units">
+        </div>
+      </div>
+      <div class="field">
+        <label for="needed">Needed by</label>
+        <input type="text" id="needed" name="entry.1658151970" placeholder="e.g. Q1 2027">
+      </div>
+      <div class="field">
+        <label for="enduse">Intended application / end use</label>
+        <textarea id="enduse" name="entry.1193815315" required placeholder="e.g. agricultural survey platform, university research airframe"></textarea>
+      </div>
+      <div class="field">
+        <label for="export">Export / end-user note</label>
+        <textarea id="export" name="entry.219278210" placeholder="Who will operate the hardware, and where"></textarea>
+      </div>
+      <div class="field">
+        <label for="notes">Additional notes</label>
+        <textarea id="notes" name="entry.1600161999"></textarea>
+      </div>
+      <div class="field">
+        <label style="display:flex; gap:10px; align-items:flex-start; color:var(--text);">
+          <input type="checkbox" name="entry.931882376" value="Yes" required style="margin-top:4px; width:auto;">
+          <span>I confirm this request is for a lawful end use and I will provide further verification if requested.</span>
+        </label>
+      </div>
+      <button type="submit" class="btn solid" id="contact-submit">Send</button>
+      <p style="margin-top:12px; font-size:0.82rem;">Nothing in this form is used for marketing lists.</p>
+    </form>
+
+    <div id="form-success" style="display:none; max-width:640px;">
+      <h3 style="margin-top:8px;">Request received.</h3>
+      <p>We'll reply by your preferred channel. Telegram <a href="https://t.me/g64group">@g64group</a> · WhatsApp <a href="https://wa.me/918073293264">+91 80732 93264</a>.</p>
+      <a class="btn" href="catalog.html">Back to catalog</a>
+    </div>
+  </div>
+</section>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="form sink"></iframe>
+
+<footer class="site-footer">
+  <div class="wrap" style="flex-direction:column;">
+    <p style="margin-bottom:16px;">Prefer chat? <a href="https://t.me/g64group">Telegram @g64group</a> · <a href="https://wa.me/918073293264">WhatsApp +91 80732 93264</a></p>
+    <p class="export-notice">Certain items listed are subject to export control regulations (including ITAR and EAR) and sale is restricted to eligible end users; screening and end-use documentation may be required prior to fulfillment. © 2026 Spacenet Network.</p>
+  </div>
+</footer>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  if (params.get('sku')) document.getElementById('sku').value = params.get('sku');
+
+  const form = document.getElementById('rfq-form');
+  const iframe = document.getElementById('hidden_iframe');
+  const success = document.getElementById('form-success');
+  let pending = false;
+
+  form.addEventListener('submit', function () {
+    pending = true;
+  });
+  iframe.addEventListener('load', function () {
+    if (!pending) return;
+    pending = false;
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog — Spacenet Network</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">SPACENET<span class="dot">.</span>NETWORK</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="catalog.html" class="active">Catalog</a>
+      <a href="about.html">About</a>
+      <a href="https://t.me/g64group">Telegram</a>
+      <a href="quote.html" class="btn">Request Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section" style="padding-top:48px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Full catalog</h2>
+        <p>Filter by subsystem. Part numbers, specs, and pricing shown; propulsion and mission-grade items are quoted on request.</p>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="product-grid" id="product-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap" style="flex-direction:column;">
+    <p style="margin-bottom:16px;">Questions? <a href="https://t.me/g64group">Telegram @g64group</a> · <a href="https://wa.me/918073293264">WhatsApp +91 80732 93264</a> · <a href="mailto:team@spacenet.network">team@spacenet.network</a></p>
+    <p class="export-notice">Certain items listed are subject to export control regulations (including ITAR and EAR) and sale is restricted to eligible end users; screening and end-use documentation may be required prior to fulfillment. © 2026 Spacenet Network.</p>
+  </div>
+</footer>
+
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  let activeCat = params.get('cat') || 'all';
+
+  const filtersEl = document.getElementById('filters');
+  const gridEl = document.getElementById('product-grid');
+
+  function renderFilters() {
+    const chips = [{id:'all', label:'All'}, ...CATEGORIES.map(c => ({id:c.id, label:c.label}))];
+    filtersEl.innerHTML = chips.map(c =>
+      `<button class="filter-chip ${c.id===activeCat?'active':''}" data-cat="${c.id}">${c.label}</button>`
+    ).join('');
+    filtersEl.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCat = btn.dataset.cat;
+        renderFilters();
+        renderGrid();
+      });
+    });
+  }
+
+  function renderGrid() {
+    const list = activeCat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCat);
+    gridEl.innerHTML = list.map(p => `
+      <div class="product-card">
+        <div class="product-visual">
+          ${p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy">` : `<svg><use href="#render-${p.icon}"></use></svg>`}
+          <span class="sku">${p.sku}</span>
+        </div>
+        <div class="product-body">
+          <h3>${p.name}</h3>
+          <p class="blurb">${p.blurb}</p>
+          <ul class="specs">
+            ${p.specs.map(([k,v]) => `<li><span>${k}</span><span>${v}</span></li>`).join('')}
+          </ul>
+          ${p.exportControlled ? '<span class="tag-restricted">Export-controlled</span>' : ''}
+          <div class="card-foot">
+            <span class="price">${p.price}</span>
+            <a class="btn" href="quote.html?sku=${encodeURIComponent(p.sku)}">Request Quote</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  renderFilters();
+  renderGrid();
+</script>
+</body>
+</html>

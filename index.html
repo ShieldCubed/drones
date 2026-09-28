@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spacenet Network — Drone Components & Subsystems</title>
+<meta name="description" content="Airframes, propulsion, avionics, sensors, power, and comms components for civilian and defense-class UAV programs.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">SPACENET<span class="dot">.</span>NETWORK</a>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="about.html">About</a>
+      <a href="https://t.me/g64group">Telegram</a>
+      <a href="quote.html" class="btn">Request Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">// UAV COMPONENTS &amp; SUBSYSTEMS</span>
+    <h1>Parts to build any drone, from survey quad to tactical airframe.</h1>
+    <p class="lede">Airframes, propulsion, avionics, sensors, power, and communications hardware, catalogued by part number. Civilian and defense-class programs, all payload classes.</p>
+    <div class="actions">
+      <a href="catalog.html" class="btn solid">Browse Catalog</a>
+      <a href="quote.html" class="btn">Request a Quote</a>
+    </div>
+    <div class="contact-bar" id="reach">
+      <a class="pill tg" href="https://t.me/g64group" target="_blank" rel="noopener">Telegram @g64group</a>
+      <a class="pill wa" href="https://wa.me/918073293264" target="_blank" rel="noopener">WhatsApp +91 80732 93264</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="num">21</span><span class="lbl">catalog items</span></div>
+      <div><span class="num">6</span><span class="lbl">subsystem categories</span></div>
+      <div><span class="num">3</span><span class="lbl">payload classes</span></div>
+      <div><span class="num">24h</span><span class="lbl">quote turnaround</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Shop by subsystem</h2>
+        <p>Every component needed to spec and assemble a complete airframe.</p>
+      </div>
+      <a href="catalog.html">View full catalog →</a>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="notice">
+      <p><strong style="color:var(--text)">How ordering works.</strong> Propulsion, avionics with export-controlled firmware, and mission-grade sensors are quoted, not sold via instant checkout — this is standard for UAV hardware subject to ITAR/EAR and destination screening. Submit a Request for Quote with your program details and end-use, and our team will follow up with pricing, lead time, and any documentation required.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap" style="flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:20px;">
+      <p>Spacenet Network supplies UAV components to civilian, commercial, and defense integrators worldwide. Reach us on <a href="https://t.me/g64group">Telegram @g64group</a> or <a href="https://wa.me/918073293264">WhatsApp +91 80732 93264</a>.</p>
+      <nav class="nav" style="gap:18px;"><a href="catalog.html">Catalog</a><a href="about.html">About</a><a href="https://t.me/g64group">Telegram</a><a href="quote.html">Request Quote</a></nav>
+    </div>
+    <p class="export-notice">Certain items listed are subject to export control regulations (including ITAR and EAR) and sale is restricted to eligible end users; screening and end-use documentation may be required prior to fulfillment. © 2026 Spacenet Network.</p>
+  </div>
+</footer>
+
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script>
+  const grid = document.getElementById('cat-grid');
+  grid.innerHTML = CATEGORIES.map(c => {
+    const count = PRODUCTS.filter(p => p.category === c.id).length;
+    return `<a class="cat-card" href="catalog.html?cat=${c.id}">
+      <svg><use href="#icon-${c.icon}"></use></svg>
+      <h3>${c.label}</h3>
+      <span class="count">${count} items</span>
+    </a>`;
+  }).join('');
+</script>
+</body>
+</html>
